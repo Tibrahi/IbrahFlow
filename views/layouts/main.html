@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}} - IbrahFlow</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    {{#if extraStyles}}
+    <link rel="stylesheet" href="{{extraStyles}}">
+    {{/if}}
+</head>
+<body>
+    <div class="app-container">
+        {{#if showSidebar}}
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <img src="/images/logo.png" alt="IbrahFlow Logo" class="logo">
+                <h1>IbrahFlow</h1>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li class="{{#if (eq active 'dashboard')}}active{{/if}}">
+                        <a href="/dashboard">
+                            <i class="fas fa-home"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="{{#if (eq active 'projects')}}active{{/if}}">
+                        <a href="/projects">
+                            <i class="fas fa-project-diagram"></i>
+                            <span>Projects</span>
+                        </a>
+                    </li>
+                    <li class="{{#if (eq active 'tasks')}}active{{/if}}">
+                        <a href="/tasks">
+                            <i class="fas fa-tasks"></i>
+                            <span>Tasks</span>
+                        </a>
+                    </li>
+                    <li class="{{#if (eq active 'team')}}active{{/if}}">
+                        <a href="/team">
+                            <i class="fas fa-users"></i>
+                            <span>Team</span>
+                        </a>
+                    </li>
+                    <li class="{{#if (eq active 'analytics')}}active{{/if}}">
+                        <a href="/analytics">
+                            <i class="fas fa-chart-bar"></i>
+                            <span>Analytics</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="/settings" class="{{#if (eq active 'settings')}}active{{/if}}">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </a>
+                <a href="/profile" class="{{#if (eq active 'profile')}}active{{/if}}">
+                    <i class="fas fa-user"></i>
+                    <span>Profile</span>
+                </a>
+                <a href="/auth/logout" class="logout">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </a>
+            </div>
+        </aside>
+        {{/if}}
+
+        <main class="main-content">
+            {{#if showHeader}}
+            <header class="main-header">
+                <div class="header-left">
+                    <button class="menu-toggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <h2>{{pageTitle}}</h2>
+                </div>
+                <div class="header-right">
+                    <div class="search-bar">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Search...">
+                    </div>
+                    <div class="notifications">
+                        <i class="fas fa-bell"></i>
+                        <span class="badge">3</span>
+                    </div>
+                    <div class="user-menu">
+                        <img src="{{user.avatar}}" alt="Profile" class="avatar">
+                        <span class="user-name">{{user.name}}</span>
+                    </div>
+                </div>
+            </header>
+            {{/if}}
+
+            <div class="content-wrapper">
+                {{{body}}}
+            </div>
+        </main>
+    </div>
+
+    {{#if extraScripts}}
+    <script src="{{extraScripts}}"></script>
+    {{/if}}
+    <script src="/js/main.js"></script>
+</body>
+</html> 

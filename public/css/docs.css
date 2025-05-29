@@ -1,0 +1,484 @@
+/* Documentation Page Styles */
+.docs-container {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    min-height: calc(100vh - 140px);
+    background: var(--bg-color);
+    margin-top: 70px; /* Add margin to account for fixed navbar */
+}
+
+/* Sidebar Styles */
+.docs-sidebar {
+    background: var(--card-bg);
+    border-right: 1px solid var(--border-color);
+    padding: 2rem;
+    height: calc(100vh - 140px);
+    position: sticky;
+    top: 70px;
+    overflow-y: auto;
+}
+
+.sidebar-search {
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.sidebar-search input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background: var(--bg-color);
+    color: var(--text-color);
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.sidebar-search input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(var(--primary-rgb), 0.1);
+}
+
+.search-results {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    margin-top: 0.5rem;
+    max-height: 300px;
+    overflow-y: auto;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.search-result-item {
+    display: block;
+    padding: 1rem;
+    border-bottom: 1px solid var(--border-color);
+    color: var(--text-color);
+    text-decoration: none;
+    transition: background 0.2s ease;
+}
+
+.search-result-item:hover {
+    background: var(--hover-color);
+}
+
+.search-result-item h4 {
+    margin: 0 0 0.5rem;
+    color: var(--primary-color);
+}
+
+.search-result-item p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.nav-section {
+    margin-bottom: 2rem;
+}
+
+.nav-section h3 {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+    letter-spacing: 0.05em;
+}
+
+.nav-item {
+    display: block;
+    padding: 0.5rem 0;
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: all 0.2s ease;
+    border-radius: 6px;
+    padding: 0.5rem 0.75rem;
+    margin: 0.25rem 0;
+}
+
+.nav-item:hover {
+    color: var(--primary-color);
+    background: var(--hover-color);
+}
+
+.nav-item.active {
+    color: var(--primary-color);
+    background: var(--hover-color);
+    font-weight: 500;
+}
+
+/* Main Content Styles */
+.docs-content {
+    padding: 3rem 3rem 2rem; /* Increased top padding */
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.docs-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: var(--text-color);
+    padding-top: 1rem;
+}
+
+.docs-content h2 {
+    font-size: 1.8rem;
+    margin: 2rem 0 1rem;
+    color: var(--text-color);
+}
+
+.docs-content h3 {
+    font-size: 1.4rem;
+    margin: 1.5rem 0 1rem;
+    color: var(--text-color);
+    position: relative;
+    padding-left: 1rem;
+    border-left: 4px solid #ff79c6;
+}
+
+/* Special styling for "Create your first app" section */
+.docs-content h3:contains("Create your first app") {
+    color: #ff79c6;
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin: 2rem 0 1.5rem;
+    padding: 1rem;
+    background: rgba(255, 121, 198, 0.1);
+    border-radius: 8px;
+    border-left: 4px solid #ff79c6;
+}
+
+.docs-content h3:contains("Create your first app") + .code-block {
+    border: 2px solid #569cd6;
+    box-shadow: 0 4px 12px rgba(86, 156, 214, 0.4);
+}
+
+.docs-content h3:contains("Create your first app") + .code-block .code-header {
+    background: #333333;
+    border-bottom: 2px solid #569cd6;
+}
+
+.docs-content h3:contains("Create your first app") + .code-block .code-title {
+    color: #569cd6;
+    font-weight: 500;
+}
+
+.docs-content h3:contains("Create your first app") + .code-block .copy-button {
+    background: #569cd6;
+    color: white;
+    border: none;
+}
+
+.docs-content h3:contains("Create your first app") + .code-block .copy-button:hover {
+    background: #4b8ac0;
+    transform: translateY(-2px);
+}
+
+.docs-content p {
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    color: var(--text-secondary);
+}
+
+.docs-content ul {
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+}
+
+.docs-content li {
+    margin-bottom: 0.5rem;
+    color: var(--text-secondary);
+}
+
+/* Code Block Styles */
+.code-block {
+    background: #000000; /* Pure black background for maximum contrast */
+    border-radius: 8px;
+    margin: 1.5rem 0;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+    border: 1px solid #888888; /* Lighter border */
+    transition: all 0.3s ease;
+}
+
+.code-block:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.7);
+}
+
+.code-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    background: #1a1a1a; /* Very dark header background */
+    border-bottom: 1px solid #999999; /* Lighter border */
+}
+
+.code-title {
+    font-size: 0.9rem;
+    color: #ffffff; /* White title color */
+    font-family: 'Fira Code', monospace;
+}
+
+.copy-button {
+    background: #aaaaaa;
+    border: none;
+    color: #000000;
+    padding: 0.25rem 0.75rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.copy-button:hover {
+    background: #bbbbbb;
+    color: #000000;
+}
+
+.copy-button.copied {
+    background: #50fa7b;
+    color: white;
+}
+
+.code-block pre {
+    margin: 0;
+    padding: 1.5rem;
+    overflow-x: auto;
+    background: #000000; /* Pure black background for maximum contrast */
+    font-size: 1rem;
+}
+
+.code-block code {
+    font-family: 'Fira Code', monospace;
+    font-size: 1rem;
+    line-height: 1.7;
+    letter-spacing: 0.4px;
+    color: #ffffff; /* White as default text color for maximum contrast */
+}
+
+/* Syntax Highlighting - Maximized Contrast */
+.code-block .keyword {
+    color: #00ffff; /* Cyan - High contrast */
+    font-weight: 700;
+}
+
+.code-block .string {
+    color: #ff8800; /* Bright Orange - High contrast */
+    font-weight: 700;
+}
+
+.code-block .comment {
+    color: #00ff00; /* Bright Green - High contrast */
+    font-style: normal;
+    font-weight: 600;
+}
+
+.code-block .function {
+    color: #ffff00; /* Bright Yellow - High contrast */
+    font-weight: 700;
+}
+
+.code-block .property {
+    color: #ff00ff; /* Magenta - High contrast */
+    font-weight: 600;
+}
+
+.code-block .number {
+    color: #ffffff; /* White - High contrast */
+    font-weight: 600;
+}
+
+.code-block .operator {
+    color: #ffffff; /* White - Maximum contrast */
+    font-weight: 800;
+}
+
+/* Enhanced separators and brackets */
+.code-block .punctuation {
+    color: #ffffff; /* White - Maximum contrast */
+    font-weight: 800;
+}
+
+/* Parentheses, Curly braces, Square brackets, Semicolon */
+.code-block .punctuation.parenthesis,
+.code-block .punctuation.curly,
+.code-block .punctuation.square,
+.code-block .punctuation.semicolon {
+    color: #ffffff; /* White - Maximum contrast */
+    font-weight: 800;
+}
+
+.code-block .variable {
+    color: #00ffff; /* Cyan - High contrast */
+    font-weight: 600;
+}
+
+.code-block .class {
+    color: #ff00ff; /* Magenta - High contrast */
+    font-weight: 700;
+}
+
+/* Inline code */
+.docs-content code:not(.code-block code) {
+    background: #f3f4f6;
+    color: #1f2937;
+    padding: 0.2em 0.4em;
+    border-radius: 4px;
+    font-size: 0.9em;
+    font-family: 'Fira Code', monospace;
+    border: 1px solid #e5e7eb;
+}
+
+/* Special styling for "Create your first app" section */
+.docs-content h3:contains("Create your first app") + .code-block {
+    border: 2px solid #00ffff; /* Cyan border */
+    box-shadow: 0 4px 15px rgba(0, 255, 255, 0.4);
+}
+
+.docs-content h3:contains("Create your first app") + .code-block .code-header {
+    background: #1a1a1a;
+    border-bottom: 2px solid #00ffff; /* Cyan border */
+}
+
+.docs-content h3:contains("Create your first app") + .code-block .code-title {
+    color: #00ffff; /* Cyan title */
+    font-weight: 600;
+}
+
+.docs-content h3:contains("Create your first app") + .code-block .copy-button {
+    background: #00ffff; /* Cyan background */
+    color: black;
+    border: none;
+}
+
+.docs-content h3:contains("Create your first app") + .code-block .copy-button:hover {
+    background: #00cccc;
+    transform: translateY(-2px);
+}
+
+/* Custom Scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: var(--bg-color);
+    border-radius: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 4px;
+    transition: background 0.2s ease;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: var(--text-secondary);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .docs-container {
+        grid-template-columns: 240px 1fr;
+    }
+    
+    .docs-content {
+        padding: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .docs-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .docs-sidebar {
+        display: none;
+    }
+    
+    .docs-content {
+        padding: 1.5rem;
+    }
+    
+    .docs-content h1 {
+        font-size: 2rem;
+    }
+    
+    .docs-content h2 {
+        font-size: 1.5rem;
+    }
+    
+    .docs-content h3 {
+        font-size: 1.2rem;
+    }
+}
+
+/* Next Steps and Related Topics */
+.next-steps {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 2rem 0;
+}
+
+.next-steps h4 {
+    color: var(--primary-color);
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+
+.next-steps ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.next-steps li {
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: baseline;
+}
+
+.next-steps li:last-child {
+    margin-bottom: 0;
+}
+
+.next-steps a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+    margin-right: 0.5rem;
+    transition: color 0.2s ease;
+}
+
+.next-steps a:hover {
+    color: var(--primary-hover);
+    text-decoration: underline;
+}
+
+.next-steps li::after {
+    content: '-';
+    color: var(--text-secondary);
+    margin: 0 0.5rem;
+}
+
+/* Code inline styling */
+.docs-content code {
+    background: var(--code-bg);
+    padding: 0.2rem 0.4rem;
+    border-radius: 4px;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.9em;
+    color: var(--code-color);
+} 
